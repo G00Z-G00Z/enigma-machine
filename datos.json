@@ -1,0 +1,98 @@
+{
+    "Configuracion": {
+        "rotorOrder": [
+            4,
+            2,
+            5
+        ],
+        "posicionInicialRotores": [
+            3,
+            10,
+            6
+        ],
+        "TipoReflector": "C",
+        "plugIns": [
+            [
+                "d",
+                "r"
+            ],
+            [
+                "q",
+                "n"
+            ],
+            [
+                "w",
+                "u"
+            ],
+            [
+                "y",
+                "v"
+            ],
+            [
+                "t",
+                "m"
+            ],
+            [
+                "c",
+                "x"
+            ],
+            [
+                "i",
+                "o"
+            ],
+            [
+                "h",
+                "g"
+            ],
+            [
+                "p",
+                "j"
+            ],
+            [
+                "z",
+                "e"
+            ],
+            "a",
+            "b",
+            "f",
+            "k",
+            "l",
+            "s"
+        ]
+    },
+    "Componentes": {
+        "rotor": {
+            "I": {
+                "wiring": "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
+                "notch": "Q"
+            },
+            "II": {
+                "wiring": "AJDKSIRUXBLHWTMCQGZNPYFVOE",
+                "notch": "E"
+            },
+            "III": {
+                "wiring": "BDFHJLCPRTXVZNYEIWGAKMUSQO",
+                "notch": "V"
+            },
+            "IV": {
+                "wiring": "ESOVPZJAYQUIRHXLNFTGKDCMWB",
+                "notch": "J"
+            },
+            "V": {
+                "wiring": "VZBRGITYUPSDNHLXAWMJQOFECK",
+                "notch": "Z"
+            }
+        },
+        "reflector": {
+            "A": {
+                "wiring": "EJMZALYXVBWFCRQUONTSPIKHGD"
+            },
+            "B": {
+                "wiring": "YRUHQSLDPXNGOKMIEBFZCWVJAT"
+            },
+            "C": {
+                "wiring": "FVPJIAOYEDRZXWGCTKUQSBNMHL"
+            }
+        }
+    }
+}

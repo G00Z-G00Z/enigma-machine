@@ -1,0 +1,612 @@
+/* font-family: 'Roboto', sans-serif; */
+*,
+body {
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	--greyColor: #c4c4c4;
+}
+
+body {
+	background-image: url("imagenes/madera1.jpg");
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.keyboard-container,
+.rotorBoard-container,
+.plugBoard-container {
+	background: url(imagenes/plastico6.jpg);
+	background-repeat: repeat;
+	position: relative;
+	width: 90%;
+	height: 50vh;
+	margin: 1vh 0;
+	border-radius: 10px;
+	box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(194, 194, 194),
+		0.3em 0.3em 1em rgba(160, 16, 16, 0.3), inset 0px 0px 50px 15px #000000;
+}
+
+#keyboard {
+	position: absolute;
+	height: 80%;
+	width: 93%;
+	/* Para ver donde esta, luego lo quitas */
+	/* background-color: rgb(255, 255, 255); */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#keyboard .keyboard-row {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#keyboard .keyboard-row:nth-child(2) {
+	width: 95%;
+}
+
+.keyBoardKey {
+	background-color: black;
+	height: 2em;
+	width: 2em;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.5em;
+	font-weight: bold;
+	border-style: inset;
+	transition: all 200ms;
+
+	/* Supuestamente brillando */
+}
+.keyOn {
+	--textColor: rgb(255, 231, 96);
+	--textShadow: rgb(204, 173, 0);
+	color: var(--textColor);
+	box-shadow: none;
+	text-shadow: var(--textColor) 0px 0px 15px, var(--textShadow) 0px 0px 20px,
+		var(--textShadow) 0px 0px 30px, var(--textShadow) 0px 0px 40px,
+		var(--textShadow) 0px 0px 50px, var(--textShadow) 0px 0px 75px,
+		2px 2px 12px rgba(206, 89, 55, 0);
+	transition: all 200ms;
+}
+.keyOnBad {
+	--textColor: rgb(255, 96, 96);
+	--textShadow: rgb(204, 0, 0);
+	color: var(--textColor);
+	box-shadow: none;
+	text-shadow: var(--textColor) 0px 0px 15px, var(--textShadow) 0px 0px 20px,
+		var(--textShadow) 0px 0px 30px, var(--textShadow) 0px 0px 40px,
+		var(--textShadow) 0px 0px 50px, var(--textShadow) 0px 0px 75px,
+		2px 2px 12px rgba(206, 89, 55, 0);
+	transition: all 200ms;
+}
+
+.keyOff {
+	color: white;
+	box-shadow: inset -1px -1px 10px -2px rgba(255, 255, 255, 0.7);
+	transition: all 200ms;
+}
+
+/* Parte de los rotores y de las instrucciones */
+
+.rotorBoard {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+
+	width: 90%;
+	height: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rotors {
+	flex-grow: 2;
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.rotors section {
+	height: 100%;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-right: 7px double #c4c4c4;
+}
+
+.rotors section:nth-child(3) {
+	border: none;
+}
+/* .rotors section * {
+	width: 100%;
+} */
+
+.rotor-order {
+	display: flex;
+	flex-grow: 0;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	text-decoration: bold;
+	border: 2px solid #bababa;
+	border-radius: 15px;
+	padding: 0rem 2rem;
+	background-color: rgba(0, 0, 0, 0.637);
+	color: white;
+	box-shadow: inset -1px -1px 10px -5px rgba(255, 255, 255, 0.7);
+	width: 4em;
+	transition: all 100ms;
+}
+.rotor-order:hover {
+	--textColor: rgb(255, 231, 96);
+	--textShadow: rgb(204, 173, 0);
+	color: var(--textColor);
+	box-shadow: none;
+	text-shadow: var(--textColor) 0px 0px 15px, var(--textShadow) 0px 0px 20px,
+		var(--textShadow) 0px 0px 30px, var(--textShadow) 0px 0px 40px,
+		var(--textShadow) 0px 0px 50px, var(--textShadow) 0px 0px 75px,
+		2px 2px 12px rgba(206, 89, 55, 0);
+	transition: all 200ms;
+}
+
+.rotor-notch {
+	flex-grow: 3;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.rotor-notch input {
+	text-align: center;
+	transition: all 200ms;
+	background: whitesmoke;
+
+	/* padding: 40px 0px; */
+	/* border-radius: 40%; */
+	font-size: 2em;
+	font-family: "Roboto Condensed", sans-serif;
+	transition: all 300ms;
+	outline: 3px inset #d8d8d8;
+	outline-offset: 0px;
+	padding-left: 1vw;
+	transform: translateX(0.2vw);
+}
+
+.rotor-notch input:focus,
+.rotor-notch input:hover {
+	background: white;
+	transition: all 200ms;
+	color: rgb(204, 173, 0);
+	transform: scale(1.1);
+}
+
+.rotor-name {
+	flex-grow: 2;
+	align-items: center;
+	justify-content: center;
+	width: 10px;
+}
+
+.instructions-container {
+	flex-grow: 5;
+	height: 100%;
+	width: 100px;
+	background-image: url("imagenes/madera2.jpg");
+
+	border: 5px inset #7a3718;
+	border-radius: 30px 30px 30px 30px;
+	background-position: left;
+	background-repeat: repeat-y;
+	-webkit-box-shadow: 0px 10px 13px -7px #000000,
+		5px 5px 15px 5px rgba(0, 0, 0, 0);
+	box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+	position: relative;
+}
+
+.text-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 95%;
+	width: 85%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	border-radius: 5px;
+}
+
+#enigma-logo {
+	align-self: flex-end;
+	width: auto;
+	height: 20%;
+	flex-grow: 0;
+	filter: grayscale(100%) sepia(100%) brightness(105%) hue-rotate(349deg)
+		saturate(165%) contrast(95%) invert(5%);
+	-webkit-filter: grayscale(100%) sepia(100%) brightness(105%)
+		hue-rotate(349deg) saturate(165%) contrast(95%) invert(5%);
+	-moz-filter: grayscale(100%) sepia(100%) brightness(105%) hue-rotate(349deg)
+		saturate(165%) contrast(95%) invert(5%);
+}
+
+#enigma-instructions {
+	background: rgb(255, 255, 255);
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 1) 7%,
+		rgba(235, 235, 235, 1) 22%,
+		rgba(214, 214, 214, 1) 75%
+	);
+	border-radius: 2%;
+	padding: 1vh 1vw;
+	flex-grow: 2;
+	font-size: 17px;
+	letter-spacing: 0.8px;
+	word-spacing: -1px;
+	color: #000000;
+	font-weight: 400;
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	font-variant: normal;
+	text-transform: none;
+	text-align: justify;
+}
+
+#enigma-instructions q {
+	justify-self: right;
+	text-align: center;
+	transform: skew(-10deg);
+	-webkit-transform: skew(-10deg);
+}
+h3 {
+	font-size: 1.5rem;
+}
+
+#enigma-instructions h3 {
+	font-size: 1.5rem;
+	justify-self: center;
+	margin-top: 1vh;
+	text-align: center;
+	transform: skew(-10deg);
+	-webkit-transform: skew(-10deg);
+	letter-spacing: 0.2rem;
+}
+#enigma-instructions p::before {
+	content: "*";
+	font-size: 1rem;
+}
+#enigma-instructions p {
+	content: "*";
+	font-size: 0.8rem;
+}
+#enigma-instructions ol li {
+	text-align: justify;
+}
+
+.button-container {
+	flex-grow: 1;
+	align-self: center;
+
+	padding: 10px;
+}
+#reset {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color: #f9f9f9;
+	border-radius: 6px;
+	border: 2px outset #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+	transition: all 200ms;
+}
+#reset:hover {
+	background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color: #e9e9e9;
+	transform: scale(1.1);
+	color: rgb(204, 173, 0);
+}
+#reset:active {
+	position: relative;
+	top: 1px;
+	transform: scale(1.2);
+	color: rgb(204, 173, 0);
+}
+
+.plugBoard-container {
+	height: 30vh;
+}
+
+.plugIns-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 90%;
+	width: 90%;
+	background-image: url("imagenes/madera2.jpg");
+	background-position: center;
+	background-size: cover;
+	border: 5px inset #7a3718;
+	border-radius: 30px 30px 30px 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.plugIns-container h3 {
+	justify-self: center;
+	margin-top: 1vh;
+	text-align: center;
+	transform: skew(-10deg);
+	-webkit-transform: skew(-10deg);
+	letter-spacing: 0.2rem;
+}
+
+.plugIns-text-container {
+	height: 90%;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 2%;
+	background: rgb(255, 255, 255);
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 1) 7%,
+		rgba(235, 235, 235, 1) 22%,
+		rgba(214, 214, 214, 1) 75%
+	);
+}
+
+#plugIns {
+	width: 95%;
+	text-align: center;
+	font-size: 1.8rem;
+	word-spacing: 0.8rem;
+}
+
+#abecedarioPlugIn {
+	width: 95%;
+	text-align: left;
+	font-size: 1.5rem;
+	justify-self: center;
+	text-decoration: bold;
+	border: 2px solid #bababa;
+	border-radius: 15px;
+	display: flex;
+	justify-content: space-evenly;
+	background-color: rgba(0, 0, 0, 0.699);
+	color: grey;
+	box-shadow: inset -1px -1px 10px -30px rgba(255, 255, 255, 0.7);
+	transition: all 200ms;
+
+	transition: all 100ms;
+}
+
+/*Este es un screw para poner en las esquinas*/
+.gg-add {
+	box-sizing: border-box;
+	display: block;
+	width: 22px;
+	height: 22px;
+	border: 2px solid;
+	transform: scale(var(--ggs, 1));
+	border-radius: 22px;
+	transform: rotate(-45deg);
+	color: rgb(0, 0, 0);
+	background-color: rgb(168, 168, 168);
+}
+
+.gg-add::after,
+.gg-add::before {
+	content: "";
+	display: block;
+	box-sizing: border-box;
+	position: absolute;
+	width: 10px;
+	height: 2px;
+	background: currentColor;
+	border-radius: 5px;
+	top: 8px;
+	left: 4px;
+}
+
+/* .gg-add::after {
+	width: 2px;
+	height: 10px;
+	top: 4px;
+	left: 8px;
+} */
+
+* .gg-add {
+	position: absolute;
+	transform: rotate(45deg);
+}
+
+* .gg-add:nth-child(1) {
+	top: 5%;
+	left: 1%;
+}
+* .gg-add:nth-child(2) {
+	top: 5%;
+	right: 1%;
+}
+* .gg-add:nth-child(3) {
+	bottom: 5%;
+	left: 1%;
+}
+* .gg-add:nth-child(4) {
+	bottom: 5%;
+	right: 1%;
+}
+
+/* Para el drop down */
+
+/* Dropdown Button */
+.dropbtn {
+	background-color: var(--greyColor);
+	color: rgb(0, 0, 0);
+	transition: all 100ms;
+	border: 4px outset #ffffff;
+	border-radius: 5px;
+	padding: 0vh 5vh;
+	font-size: 1rem;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+	right: -65%;
+	transform: translate(-50%);
+	transition: all 100ms;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	width: 100%;
+	background-color: #ffffff;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	transition: all 100ms;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	transition: all 100ms;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: rgb(204, 173, 0);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: #ffffff;
+	color: rgb(204, 173, 0);
+	transform: scale(1.1);
+}
+@media (max-width: 1600px) {
+	.rotorBoard-container {
+		height: 80vh;
+	}
+
+	#enigma-instructions {
+		max-height: 70%;
+		width: 100%;
+		font-size: 1rem;
+	}
+	#enigma-logo {
+		height: 13%;
+	}
+	#reset {
+		margin-top: 0;
+	}
+	.button-container {
+		padding: 0;
+		margin-top: 2vh;
+	}
+}
+@media (max-width: 800px) {
+	.rotorBoard-container {
+		height: 120vh;
+	}
+
+	.rotorBoard {
+		display: flex;
+		flex-direction: column;
+	}
+	.keyBoardKey {
+		background-color: black;
+		height: 1.5em;
+		width: 1.5em;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 2.5em;
+		font-weight: bold;
+		border-style: inset;
+		transition: all 200ms;
+
+		/* Supuestamente brillando */
+	}
+	#enigma-instructions {
+		max-height: 80%;
+		width: 100%;
+		font-size: 0.8rem;
+		margin-top: 5vh;
+	}
+
+	.instructions-container {
+		width: 90%;
+	}
+
+	.text-container {
+		height: 100%;
+	}
+
+	#enigma-instructions q {
+		display: none;
+	}
+	#enigma-logo {
+		display: none;
+	}
+	#reset {
+		margin-top: 0;
+	}
+	.button-container {
+		padding: 0;
+		margin-top: 2vh;
+	}
+	#plugIns {
+		font-size: 1rem;
+		word-spacing: 0.4rem;
+	}
+	#abecedarioPlugIn {
+		font-size: 1rem;
+	}
+}

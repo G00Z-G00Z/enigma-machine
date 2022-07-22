@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Enigma Machine Beta 1.0</title>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link href="https://css.gg/add.css" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<body>
+		<!-- Esta es la parte de los keyboard -->
+		<div class="keyboard-container">
+			<!-- Tornillos 4  -->
+			<span class="gg-add"></span>
+			<span class="gg-add"></span>
+			<span class="gg-add"></span>
+			<span class="gg-add"></span>
+
+			<!-- Este es el teclado que brillara -->
+			<div id="keyboard">
+				<div class="keyboard-row"></div>
+				<div class="keyboard-row"></div>
+				<div class="keyboard-row"></div>
+			</div>
+		</div>
+
+		<!-- Esta es la parte de los rotores y de las instrucciones -->
+		<div class="rotorBoard-container">
+			<!-- Tornillos 4  -->
+			<span class="gg-add"></span><span class="gg-add"></span
+			><span class="gg-add"></span><span class="gg-add"></span>
+
+			<div class="rotorBoard">
+				<!-- Aqui se guardan los rotores -->
+				<div class="rotors">
+					<section id="rotor1">
+						<div class="rotor-order">1</div>
+						<div class="rotor-notch">
+							<input type="number" name="number" id="number1" />
+						</div>
+						<div class="rotor-name">
+							<div class="dropdown">
+								<button class="dropbtn">Pendig</button>
+								<div class="dropdown-content">
+									<a>I</a>
+									<a>II</a>
+									<a>III</a>
+									<a>IV</a>
+									<a>V</a>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="rotor2">
+						<div class="rotor-order">2</div>
+						<div class="rotor-notch">
+							<input type="number" name="number" id="number2" />
+						</div>
+						<div class="rotor-name">
+							<div class="dropdown">
+								<button class="dropbtn">Pendig</button>
+								<div class="dropdown-content">
+									<a>I</a>
+									<a>II</a>
+									<a>III</a>
+									<a>IV</a>
+									<a>V</a>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="rotor3">
+						<div class="rotor-order">3</div>
+						<div class="rotor-notch">
+							<input type="number" name="number" id="number3" />
+						</div>
+						<div class="rotor-name">
+							<div class="dropdown">
+								<button class="dropbtn">Pendig</button>
+								<div class="dropdown-content">
+									<a>I</a>
+									<a>II</a>
+									<a>III</a>
+									<a>IV</a>
+									<a>V</a>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<!-- Aqui se guardan las instrucciones -->
+				<div class="instructions-container">
+					<span class="gg-add"></span><span class="gg-add"></span
+					><span class="gg-add"></span><span class="gg-add"></span>
+					<section class="text-container">
+						<img id="enigma-logo" src="imagenes\enigmaLogo-removebg-preview.png" alt="logo Enigma"> 
+						<section id="enigma-instructions">
+							<q>Esta es una máquina de rotores que permite cifrar y descifrar mensajes usada en los años 30.</q>
+							<h3>Instrucciones</h3>
+							<p>Para poder cifrar mensajes:</p>
+							<ol>
+								<li>Poner las configuraciones iniciales en los rotores, y los plugins</li>
+								<li>Escribir el mensaje y anotar las letras que se encienden</li>
+								<li>Si se desea escribir otro mensaje, puedes resetear enigma a las configuraciones iniciales</li>
+							</ol>
+							<p>Para descifrar</p>
+							<ol>
+							<li>Repetir el proceso para cifrar mensajes, pero con el mensaje encriptado</li>
+							</ol>	
+						</section>
+						<div class="button-container">
+							<button id="reset">Reset Enigma</button>
+						</div>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Este es el plugboard -->
+		<div class="plugBoard-container">
+			<!-- Tornillos 4  -->
+			<span class="gg-add"></span><span class="gg-add"></span
+			><span class="gg-add"></span><span class="gg-add"></span>
+			<div class="plugIns-container">
+				<span class="gg-add"></span><span class="gg-add"></span
+					><span class="gg-add"></span><span class="gg-add"></span>
+				<div class="plugIns-text-container">
+					<h3>Plug Board</h3>
+					<input type="text" name="plugIns" id="plugIns">
+					<div id="abecedarioPlugIn"></div>
+				</div>
+				
+			</div>
+				
+		</div>
+		<script src="clasesEnigma.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
